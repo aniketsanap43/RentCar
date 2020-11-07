@@ -1,0 +1,32 @@
+/*-------------------------------------------------
+	3.11. Login / Register / Forgot password
+-------------------------------------------------------*/
+
+.login_wrap, .signup_wrap {
+    display: table;
+    position: relative;
+    width: 100%;
+  }
+  #loginform .modal-foot, #signupform .modal-foot, #forgotpassword .modal-foot {
+  	border-top:0px;
+  }
+  #loginform .modal-foot p, #signupform .modal-foot p, #forgotpassword .modal-foot p {
+    padding-top: 10px;
+    height:auto;
+  	font-size:14px;
+  	color:#111;
+  	line-height:22px;
+  	font-weight:400;
+  }
+    #loginform .modal-foot a:hover, #signupform .modal-foot a:hover, #forgotpassword .modal-foot a:hover {
+      text-decoration: none
+  }
+
+
+  .mid_divider {
+    border-left: 1px solid #d7d7d7;
+    height: 100%;
+    left: 50%;
+    position: absolute;
+    top:0;
+  }

@@ -1,0 +1,57 @@
+.profile-row {
+	height:auto;
+	border-style: solid;
+	margin-bottom: 40px;
+}
+.profile-col {
+	border-style: none none none groove;
+}
+.user-profile{
+	padding-top:40px;
+	margin-bottom: 20px;
+	border-style: none none groove none;
+}
+.credit-bal{
+	padding-bottom: 20px;
+	border-style: none none groove none;
+}
+.user-photo i{
+	font-size: 50px;
+	padding-bottom: 10px;
+}
+.user-prof-listing{
+	color:black;
+	border-style: none none none none;
+}
+
+.user-prof-listing div {
+	padding:5px 0px 5px 12px;
+	border-style: none none groove none;
+}
+.user-prof-listing div a{
+	color:black;	
+	text-decoration: none;
+}
+.user-prof-listing div a{
+	color:black;
+	text-decoration: none;
+}
+hr.groove {
+  border-top: groove;
+}
+.profile-update{
+	height:auto;
+	border-style: groove;
+	padding-bottom: 20px;
+
+}
+.profile-col{
+	padding:20px;
+}
+
+.form-group{
+	padding:0px 10px 0px 10px;
+}
+.form-group input{
+	margin:0px 40px 0px 10px;		
+}

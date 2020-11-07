@@ -1,0 +1,140 @@
+/********************Footer Section Starded********************/
+
+.footer-section-1{
+	width: 100%;
+	height: auto;  /*100 view height*/
+	background: linear-gradient(rgba(96, 105, 91, 1) , rgba(96, 105, 91, 1));
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	position: relative; /*f to access more colors*/
+}
+
+.footer-section-1:before{
+	content: "";
+	position: absolute;
+	top: 0%;
+	bottom: 0%;
+	right: 0%;
+	left: 0%;
+	opacity: .4;
+	z-index: -1; /*the text in header will be shown*/
+}
+.help-section{
+	padding: 20px;
+	background-repeat: no-repeat;
+	text-align: center;
+	position: relative;
+	background: linear-gradient(rgba(185, 209, 193, 0.8) , rgba(185, 209, 193, 0.8));
+}
+.help-section:before{
+	content: "";
+	position: absolute;
+	top: 0%;
+	bottom: 0%;
+	right: 0%;
+	left: 0%;
+	opacity: .4;
+	z-index: -1; /*the text in header will be shown*/
+	
+}
+.help-section-icon:hover{
+	box-shadow: 20px 0 20px 0 rgba(141, 141, 119, 0.8);
+}
+.help-section-icon a i{
+	padding-top: 10px;
+}
+
+.footer-body{
+	border-style: none none solid none;
+	padding: 50px;
+}
+.body-elem{
+	padding:15px 0px 15px 0px;
+}
+
+.body-elem a{
+	font-size: 1rem;
+	color: #000000;
+}
+.body-elem a:hover{
+	color: #000000;
+}
+.body-elem h4{
+	text-align: center;
+}
+.address{
+	padding: 30px 0px 30px 200px;
+}
+.p1{
+	font-size: 1.5rem;
+	color: #000000;
+}
+.p2{
+	color: #000000;
+}
+.icons a{
+	padding-right:20px;
+	color: #ffffff;
+}
+.footer-section-2{
+	width: 100%;
+	height: auto;
+	padding: 30px 170px 30px 200px;
+	text-align: left;
+}
+.footer-section-2 p{
+	font-size: 0.8rem;
+}
+
+/********************Footer Section Ended*******************/
+@media (max-width:480px) {
+	.footer-section-1{
+		height: auto;
+	}
+	.help-section row col{
+		padding-bottom:20px;
+	}
+	.address{
+		padding: 30px 50px 30px 10px;
+	}
+	.body-elem h4{
+		text-align: left;
+	}
+	.footer-section-2{
+		height: auto;
+		padding-left: 30px;
+	}
+	.help-section{
+		padding-bottom: 20px;
+	}
+
+}
+@media (max-width:767px) {
+	.footer-section-1{
+		height: auto;
+	}
+	.help-section row col{
+		padding-bottom:20px;
+	}
+	.body-elem h4{
+		text-align: left;
+	}
+	.address{
+		padding: 30px 0px 30px 50px;
+	}
+	.footer-section-2{
+		height: auto;
+		padding: 30px;
+	}
+	.help-section{
+		padding-bottom: 20px;
+	}
+
+}
+@media (min-width:768px) and (max-width:991px) {
+
+}
+
+@media (min-width:992px) and (max-width:1200px) {
+	
+}

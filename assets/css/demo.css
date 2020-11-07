@@ -1,0 +1,120 @@
+/* Add a black background color to the top navigation */
+.topnav {
+	background-color: #333;
+	overflow: hidden;
+  }
+  
+  /* Style the links inside the navigation bar */
+  .navbar-brand{
+	  float: left;
+	  font-size: 3rem;
+	  font-weight: 2rem;
+  }
+  .user-login{
+	align-items:center ;
+	float: right;
+  }
+ .nav-link{
+	  float:right;
+  }
+
+  .topnav a {
+	color: #f2f2f2;
+	text-align: center;
+	padding: 14px 12px;
+	text-decoration: none;
+	font-size: 17px;
+  }
+  
+  /* Change the color of links on hover */
+  .topnav a:hover {
+	text-decoration: none;
+	color: white;
+  }
+  
+  /* Add an active class to highlight the current page */
+  .topnav a.active {
+	background-color: #4CAF50;
+	color: white;
+  }
+  .topnav-right{
+	  float:right;
+  }
+  /* Hide the link that should open and close the topnav on small screens */
+  .topnav .icon {
+	display: none;
+  }
+
+/* When the screen is less than 600 pixels wide, hide all links, except for the first one ("Home"). Show the link that contains should open and close the topnav (.icon) */
+@media screen and (max-width: 600px) {
+	.topnav a:not(:first-child) {display: none;}
+	.topnav a.icon {
+	  float: right;
+	  display: block;
+	}
+  }
+  
+  /* The "responsive" class is added to the topnav with JavaScript when the user clicks on the icon. This class makes the topnav look good on small screens (display the links vertically instead of horizontally) */
+  @media screen and (max-width: 600px) {
+	.topnav.responsive {position: relative;}
+	.topnav.responsive a.icon {
+	  position: absolute;
+	  right: 0;
+	  top: 0;
+	}
+	.topnav.responsive a {
+	  float: none;
+	  display: block;
+	  text-align: left;
+	}
+  }
+
+  /*Top Header With Responsive Image*/
+  .topheader{
+	width: 100%;
+	height: 70vh;  /*100 view height*/
+	background-image:linear-gradient(rgba(96, 95, 71,0.3) ,rgba(96, 95, 71,0.3)) ,  url("../images/bg-1.jpg");
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	/*clip-path: polygon(100% 0% , 100% 77% , 50% 100% ,0% 75% ,0 0);*/
+	position: relative; /*f  to access more colors*/
+}
+.topheader:before{
+	content: "";
+	position: absolute;
+	top: 0%;
+	bottom: 0%;
+	right: 0%;
+	left: 0%;
+	opacity: .4;
+	z-index: -1; /*the text in header will be shown*/
+	/*background: linear gradient(to right, #1e5799 0%, #3ccdbb 0%, #16c9fc 100%);*/
+}
+.center-div{
+	color: #fff;
+	text-align: center;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%,-50%);   /* css3 property,it doesnt work for sometimes so use three times as below*/
+	-ms-transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+ }
+
+.center-div p{
+ 	font-size: 1.5rem;
+ 	font-family: bold;
+ 	padding: 10px 0 20px, 0;
+ 	color: white;
+}
+
+@media screen and (max-width: 600px) {
+	.topheader  {
+	  height:30vh;
+	}
+	.center-div h1{
+		font-size: 1rem;
+	}
+	.center-div p{
+		font-size: 0.8rem;
+	}
