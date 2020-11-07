@@ -1,0 +1,233 @@
+@charset "utf-8";
+
+
+body {
+	font-family: 'Lato', sans-serif;
+	margin:0px;
+	padding:0px !important;
+	overflow-x:hidden;
+	color:#555555;
+}
+
+a{
+	text-decoration: none; /* because anchor tag by default made underline so it removes it*/
+}
+a:hover{
+	text-decoration: none;
+}
+li { list-style: none; }
+
+p{
+	font-size: .9rem;
+	line-height: 1.6;
+	font-weight: 4000;
+}
+
+
+/****************Benefits Section Started Here****************/
+
+.benefits-section {
+	width: 100%;
+	height: 50vh;
+	/*!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!IMAGE PROBLEM!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
+	background-image: linear-gradient(rgba(76, 155, 86, 0.1) ,rgba(76, 155, 86, 0.1)) , url('../images/2.jpg');*/
+	background-repeat: no-repeat;
+	background-size: 100% 100%;
+	position: relative; 
+	border-style: solid;
+	
+}
+
+.benefits-section:before{
+	content: "";
+	position: absolute;
+	top: 0%;
+	bottom: 0%;
+	right: 0%;
+	left: 0%;
+	opacity: .3;
+	z-index: -1;
+	background: linear-gradient(to right, #1e5799 0%, #3ccdbb 0%, #16c9fc 100%);
+}
+
+.benefit-div{
+	width: 100%;
+	height: auto;
+	text-align: center;
+	top: 50%;
+	left: 50%;
+	position: absolute;
+	transform: translate(-50%,-50%);   /* css3 property,it doesnt work for sometimes so use three times as below*/
+	-ms-transform: translate(-50%,-50%);
+	-webkit-transform: translate(-50%,-50%);
+ }
+
+ .benefit-div h2{
+ 	font-size: 3rem;
+	margin: 20px 0 15px 0;
+	font-weight: bold;
+	line-height: 1.1;
+	word-spacing: 4px; 
+ }
+
+ .extra-benefit{
+		background: #fff;
+		margin-top: -80px;
+		transition: 0.3s;
+		font-size:0.9rem;
+		margin-bottom: 100px;
+		border-style: solid;
+		text-align: center;
+}
+.extra-benefit:hover{
+ 	box-shadow: 0 0 20px 0 rgba(0,0,0,0.3);
+ 	border:inset;
+ 	transform: translateY(-20px);
+}
+
+/*benefit reward ended here*************************/
+
+
+/********************Project Works Starts*********************/
+
+.project-works {
+	width:100%;
+	margin-top:180px;
+	height: 60vh;
+	padding-top:80px;
+	padding-bottom:30px;
+	font-size: 2rem;
+	text-align: center;
+}
+.project-div{
+	margin-bottom:30px;
+}
+
+/********************Project Works End********************/
+
+/*******************Developers Profile*******************/
+
+.developer-profile{
+	width: 100%;
+	height: 100vh;
+	padding: 50px;
+	position: relative;
+	margin-top: 20px;
+}
+.developer-profile:before{
+	content: "";
+	position: absolute;
+	top: 0%;
+	bottom: 0%;
+	right: 0%;
+	left: 0%;
+	z-index: -1; 
+	background: linear-gradient(160deg , #16c9fc 55% , #fff 50%);
+}
+.developer-heading{
+	margin-bottom: 50px;
+}
+.card{
+	padding: 20px;
+}
+
+.card:hover{
+ 	box-shadow: 0 0 20px 0 rgba(0,0,0,0.3);
+ 	transform: translateY(-20px);
+}
+/*******************Developers Profile Ended*******************/
+
+
+/*********************Media Starts**************/
+	@media (max-width:480px) {
+	body {
+		margin:0px;
+		padding:0px !important;
+		overflow-x:hidden;
+	}
+	.topheader{
+			width:100%;
+		}
+
+	}
+
+	@media(max-width :768px)
+	{
+		body {
+			margin:0px;
+			padding:0px !important;
+			overflow-x:hidden;
+		}
+		.topheader{
+			width:100%;
+		}
+		.project-works{
+			margin-top: 60px;
+			height: auto;
+			padding-bottom: 10px;
+		}
+		.benefit-div{
+			top:40%;
+		}
+		.benefits-section h3{
+			font-size: 0.8rem;
+		}
+		.extra-benefit-div{
+			padding-top: 100px;
+		}
+		.extra-benefit{
+				padding-left: 40px;
+				padding-right: 40px;
+		}
+		.developer-profile{
+			height: auto;
+			border: none;
+		}
+		
+	}
+
+
+
+@media (min-width:768px) and (max-width:991px) {
+	body {
+		margin:0px;
+		padding:0px !important;
+		overflow-x:hidden;
+	}
+	.extra-benefit{
+		margin-top: -80px;
+	}
+}
+
+@media (min-width:992px) and (max-width:1200px) {
+	body {
+		margin:0px;
+		padding:0px !important;
+		overflow-x:hidden;
+	}
+	.benefits-section{
+		height:25vh;
+	}
+	
+}
+
+
+/*
+
+@media (max-width:480px) {
+
+}
+
+@media (max-width:767px) {
+
+}
+
+@media (min-width:768px) and (max-width:991px) {
+
+}
+
+@media (min-width:992px) and (max-width:1200px) {
+	
+}
+
+*/
