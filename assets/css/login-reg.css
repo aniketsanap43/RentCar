@@ -7,7 +7,11 @@
     position: relative;
     width: 100%;
   }
+  .forgotpassword_wrap{
+    padding-top: 30px;
+  }
   #loginform .modal-foot, #signupform .modal-foot, #forgotpassword .modal-foot {
+    text-align: center;
   	border-top:0px;
   }
   #loginform .modal-foot p, #signupform .modal-foot p, #forgotpassword .modal-foot p {
@@ -19,14 +23,18 @@
   	font-weight:400;
   }
     #loginform .modal-foot a:hover, #signupform .modal-foot a:hover, #forgotpassword .modal-foot a:hover {
-      text-decoration: none
+      text-decoration: none;
   }
-
-
-  .mid_divider {
-    border-left: 1px solid #d7d7d7;
-    height: 100%;
-    left: 50%;
-    position: absolute;
-    top:0;
+  .google-signup-link a{
+    color:black;
+    text-decoration: none;
   }
+  .google-signup-link a:hover{
+    color:black;
+    text-decoration: none;
+  }
+.google-img-style img{
+  margin:0px 5px 3px 0px;
+  width:30px;
+  height: 30px;
+}

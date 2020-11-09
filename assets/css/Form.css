@@ -18,7 +18,6 @@
   box-shadow: none;
   color: #888888;
   font-size: 15px;
-  width:30px;
   height: 46px;
   line-height: 30px;
   padding: 0 15px;
@@ -26,6 +25,19 @@
 .form-control:hover, .form-control:focus {
 	box-shadow:none;
 	outline:none
+}
+.profile-input input[type=text]{
+  width:40%;
+}
+.profile-input input[type=email]{
+  width:40%;
+}
+.save-changes-btn{
+  border-style: groove;
+  opacity:0.8;
+  margin:10px 0px 0px 8px;
+  padding:8px;
+  padding-bottom: 10px;
 }
 .select {
 	position:relative;

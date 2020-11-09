@@ -121,37 +121,37 @@ foreach($results as $result)
 						            </div>
 						            <?php } ?>
 						            <div class="form-group">
-						              <label class="control-label">Full Name</label>
-						              <input class="form-control white_bg" name="fullname" value="<?php echo htmlentities($result->FullName);?>" id="fullname" type="text"  required>
-						            </div>
+						             	<label class="control-label">Full Name</label>
+						             	<input class="form-control profile-input" name="fullname" value="<?php echo htmlentities($result->FullName);?>" id="fullname" type="text"  required>
+									</div>
 						            <div class="form-group">
 						              <label class="control-label">Email Address</label>
-						              <input class="form-control white_bg" value="<?php echo htmlentities($result->EmailId);?>" name="emailid" id="email" type="email" required readonly>
+						              <input class="form-control profile-input" value="<?php echo htmlentities($result->EmailId);?>" name="emailid" id="email" type="email" required readonly>
 						            </div>
 						            <div class="form-group">
 						              <label class="control-label">Phone Number</label>
-						              <input class="form-control white_bg" name="mobilenumber" value="<?php echo htmlentities($result->ContactNo);?>" id="phone-number" type="text" required>
+						              <input class="form-control profile-input" name="mobilenumber" value="<?php echo htmlentities($result->ContactNo);?>" id="phone-number" type="text" required>
 						            </div>
 						            <div class="form-group">
 						              <label class="control-label">Date of Birth&nbsp;(dd/mm/yyyy)</label>
-						              <input class="form-control white_bg" value="<?php echo htmlentities($result->dob);?>" name="dob" placeholder="dd/mm/yyyy" id="birth-date" type="text" >
+						              <input class="form-control profile-input" value="<?php echo htmlentities($result->dob);?>" name="dob" placeholder="dd/mm/yyyy" id="birth-date" type="text" >
 						            </div>
 						            <div class="form-group">
 						              <label class="control-label">Your Address</label>
-						              <textarea class="form-control white_bg" name="address" rows="4" ><?php echo htmlentities($result->Address);?></textarea>
+						              <textarea class="form-control profile-input" name="address" rows="3" cols="30" ><?php echo htmlentities($result->Address);?></textarea>
 						            </div>
 						            <div class="form-group">
 						              <label class="control-label">Country</label>
-						              <input class="form-control white_bg"  id="country" name="country" value="<?php echo htmlentities($result->Country);?>" type="text">
+						              <input class="form-control profile-input"  id="country" name="country" value="<?php echo htmlentities($result->Country);?>" type="text">
 						            </div>
 						            <div class="form-group">
 						              <label class="control-label">City</label>
-						              <input class="form-control white_bg" id="city" name="city" value="<?php echo htmlentities($result->City);?>" type="text">
+						              <input class="form-control profile-input" id="city" name="city" value="<?php echo htmlentities($result->City);?>" type="text">
 						            </div>
 						            <?php }} ?>
 						           
 						            <div class="form-group">
-						              <button type="submit" name="updateprofile" class="btn">Save Changes <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
+						              <button type="submit" name="updateprofile" class="save-changes-btn">Save Changes <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
 						            </div>
 					         	 </form>
          					</div>

@@ -1,6 +1,104 @@
 <?php
-//error_reporting(0);
-if(isset($_POST['signup']))
+
+//index.php
+
+//Include Configuration File
+include('config-gmail.php');
+include('config.php');
+
+$login_button = '';
+
+
+if(isset($_GET["code"]))
+{
+
+ $token = $google_client->fetchAccessTokenWithAuthCode($_GET["code"]);
+
+
+ if(!isset($token['error']))
+ {
+ 
+  $google_client->setAccessToken($token['access_token']);
+
+ 
+  $_SESSION['access_token'] = $token['access_token'];
+
+
+  $google_service = new Google_Service_Oauth2($google_client);
+
+  $data = $google_service->userinfo->get();
+  
+  if(!empty($data['given_name']))
+  {
+    $_SESSION['user_first_name'] = $data['given_name'];
+  }
+  if(!empty($data['email']))
+  {
+    $_SESSION['user_email_address'] = $data['email'];
+  }
+  $fname= $_SESSION['user_first_name'];
+  $email= $_SESSION['user_email_address'];
+
+  //query to check email availabilty
+  $sql_email_check ="SELECT EmailId FROM tblusers WHERE EmailId=:email";
+$query= $dbh -> prepare($sql_email_check);
+$query-> bindParam(':email', $email, PDO::PARAM_STR);
+$query-> execute();
+$results = $query->fetchAll(PDO::FETCH_OBJ);
+$cnt=1;
+if($query -> rowCount() > 0)
+{
+  echo "<script type='text/javascript'>alert('User from this email id already exists.');</script>"; 
+  echo "<script>";
+  echo "setTimeout(function(){ ";
+  echo "   document.location='http://localhost/web1/';";
+  echo "});";  // redirect after 3 seconds
+  echo "</script>";
+   //header("Location:index.php");
+    $google_client->revokeToken();
+
+    //Destroy entire session data.
+    session_destroy();
+}else{
+  
+  //inserting data into sql fetched from gmail-client
+  $sql="INSERT INTO  tblusers(FullName,EmailId) VALUES(:fname,:email)";
+  $query = $dbh->prepare($sql);
+  $query->bindParam(':fname',$fname,PDO::PARAM_STR);
+  $query->bindParam(':email',$email,PDO::PARAM_STR);
+  $query->execute();
+  $lastId = $dbh->lastInsertId();
+  if($lastId)
+    {
+       echo "<script>alert('Registration successfull. Now you can login');</script>";
+       echo "<script>";
+      echo "setTimeout(function(){ ";
+      echo "   document.location='http://localhost/web1/';";
+      echo "});";  // redirect after 3 seconds
+      echo "</script>";
+   //header("Location:index.php");
+    $google_client->revokeToken();
+
+    //Destroy entire session data.
+    session_destroy(); 
+    }else 
+    {
+      echo "<script>alert('Something went wrong. Please try again');</script>";
+      echo "<script>";
+      echo "setTimeout(function(){ ";
+      echo "   document.location='http://localhost/web1/';";
+      echo "});";  // redirect after 3 seconds
+      echo "</script>";
+        //header("Location:index.php");
+        $google_client->revokeToken();
+        //Destroy entire session data.
+        session_destroy();
+    }
+}
+
+}
+
+}else if(isset($_POST['signup']))
 {
 $fname=$_POST['fullname'];
 $email=$_POST['emailid']; 
@@ -16,12 +114,17 @@ $query->execute();
 $lastId = $dbh->lastInsertId();
 if($lastId)
 {
-echo "<script>alert('Registration successfull. Now you can login');</script>";
+echo '<script type="text/javascript">alert("Registration successfull. Now you can login");</script>';
 }
 else 
 {
 echo "<script>alert('Something went wrong. Please try again');</script>";
 }
+}
+if(!isset($_SESSION['access_token']))
+{
+  $login_button = '<div class="google-signup-link"><a class="google-img-style" href="'.$google_client->createAuthUrl().'">
+  <img src="./assets/images/google_png.png" style="width:25px;height: 25px;" />Signup With Google</a></div>';
 }
 
 ?>
@@ -92,10 +195,18 @@ return true;
                   <input type="submit" value="Sign Up" name="signup" id="submit" class="btn btn-info btn-block">
                 </div>
               </form>
+              <div>
+                <label class="using-social">Sign Up With:</label>  
+              </div>  
+              <div class="g-btn">
+              <?php
+                echo '<div align="center">'.$login_button . '</div>';
+              ?>
+              </div> 
             </div>
-            
-          </div>
+          </div>    
         </div>
+      </div>
         <div class="modal-foot text-center">
           <p>Already got an account? <a href="#loginform" data-toggle="modal" data-dismiss="modal">Login Here</a></p>
         </div>

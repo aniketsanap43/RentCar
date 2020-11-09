@@ -36,14 +36,7 @@ error_reporting(0);
 <!----------------HEADER PART START--------------->
 
 <?php include('includes/header.php'); ?>
-<div class="topheader">
-<!-- Header Section ------->
-    <div class="center-div ">
-      <h1 class="font-weight-bold text-uppercase text-black">drive in the city and outstation</h1>
-      <p class="text-uppercase">self drive car rental</p>
-    </div>
-  </section>
-</div>
+<?php include('includes/header-pic.php'); ?>
 
 <!------------------Advantage Section------------->
 
@@ -68,6 +61,10 @@ error_reporting(0);
 <!----------------Login Form---------------------->
 
 <?php include('includes/login.php')?>
+
+<!----------------Forgot Password---------------------->
+
+<?php include('includes/forgotpw.php')?>
 
 <!--------------Email Availability---------------->
 
