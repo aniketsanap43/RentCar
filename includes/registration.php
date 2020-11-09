@@ -32,36 +32,37 @@ if(isset($_GET["code"]))
   {
     $_SESSION['user_first_name'] = $data['given_name'];
   }
+  if(!empty($data['family_name']))
+  {
+   $_SESSION['user_last_name'] = $data['family_name'];
+  }
   if(!empty($data['email']))
   {
     $_SESSION['user_email_address'] = $data['email'];
   }
-  $fname= $_SESSION['user_first_name'];
+  $fname= $_SESSION['user_first_name']." ".$_SESSION['user_last_name'];
   $email= $_SESSION['user_email_address'];
 
   //query to check email availabilty
-  $sql_email_check ="SELECT EmailId FROM tblusers WHERE EmailId=:email";
-$query= $dbh -> prepare($sql_email_check);
-$query-> bindParam(':email', $email, PDO::PARAM_STR);
-$query-> execute();
-$results = $query->fetchAll(PDO::FETCH_OBJ);
-$cnt=1;
-if($query -> rowCount() > 0)
-{
-  echo "<script type='text/javascript'>alert('User from this email id already exists.');</script>"; 
-  echo "<script>";
-  echo "setTimeout(function(){ ";
-  echo "   document.location='http://localhost/web1/';";
-  echo "});";  // redirect after 3 seconds
-  echo "</script>";
-   //header("Location:index.php");
-    $google_client->revokeToken();
-
-    //Destroy entire session data.
-    session_destroy();
+  $sql ="SELECT EmailId FROM tblusers WHERE EmailId=:email";
+  $query= $dbh -> prepare($sql);
+  $query-> bindParam(':email', $email, PDO::PARAM_STR);
+  $query-> execute();
+  $results = $query->fetchAll(PDO::FETCH_OBJ);
+  $cnt=1;
+  if($query -> rowCount() > 0)
+  {
+    //if user is already registered then here it is automatically logged in.
+    //set an user_email_adress value to login variable
+    $_SESSION['login']=$_SESSION['user_email_address']; 
+    echo "<script>";
+    echo "setTimeout(function(){ ";
+    echo "   document.location='http://localhost/web1/';";
+    echo "});";  // redirect after 3 seconds
+    echo "</script>";
 }else{
   
-  //inserting data into sql fetched from gmail-client
+  //inserting data into sql fetched from gmail-client and automatically logged in
   $sql="INSERT INTO  tblusers(FullName,EmailId) VALUES(:fname,:email)";
   $query = $dbh->prepare($sql);
   $query->bindParam(':fname',$fname,PDO::PARAM_STR);
@@ -70,17 +71,14 @@ if($query -> rowCount() > 0)
   $lastId = $dbh->lastInsertId();
   if($lastId)
     {
-       echo "<script>alert('Registration successfull. Now you can login');</script>";
-       echo "<script>";
+      //automatically login after completion of registration
+      echo "<script>alert('Registration successfull.');</script>";
+      $_SESSION['login']=$_SESSION['user_email_address'];
+      echo "<script>";
       echo "setTimeout(function(){ ";
       echo "   document.location='http://localhost/web1/';";
       echo "});";  // redirect after 3 seconds
-      echo "</script>";
-   //header("Location:index.php");
-    $google_client->revokeToken();
-
-    //Destroy entire session data.
-    session_destroy(); 
+      echo "</script>"; 
     }else 
     {
       echo "<script>alert('Something went wrong. Please try again');</script>";
@@ -194,14 +192,12 @@ return true;
                 <div class="form-group">
                   <input type="submit" value="Sign Up" name="signup" id="submit" class="btn btn-info btn-block">
                 </div>
-              </form>
-              <div>
-                <label class="using-social">Sign Up With:</label>  
-              </div>  
+              </form> 
               <div class="g-btn">
-              <?php
-                echo '<div align="center">'.$login_button . '</div>';
-              ?>
+                <label class="using-social">Sign Up With:</label>
+                <?php
+                  echo '<div align="center">'.$login_button . '</div>';
+                ?>
               </div> 
             </div>
           </div>    

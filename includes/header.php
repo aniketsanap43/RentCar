@@ -19,7 +19,7 @@
                  <li class="nav-item">
                   <a class="nav-link" href="#">RC Subscribe</a>
                 </li>
-                <?php if(strlen($_SESSION['login'])==0 )
+                <?php if(strlen($_SESSION['login'])==0)
 {
 ?>              
                  <li class="nav-item">
@@ -36,15 +36,7 @@ else{
                 <a class="nav-link" href="#" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
                   <i class="fa fa-user-circle" aria-hidden="true"></i>
 <?php
-$email = $_SESSION['login'];
-/*
-if(strlen($_SESSION['login'])!=0)
-{
-  $email=$_SESSION['login'];
-} else{
-  $email=$_SESSION['code'];
-}*/
-
+$email=$_SESSION['login'];
 $sql ="SELECT FullName FROM tblusers WHERE EmailId=:email ";
 $query= $dbh -> prepare($sql);
 $query-> bindParam(':email', $email, PDO::PARAM_STR);
