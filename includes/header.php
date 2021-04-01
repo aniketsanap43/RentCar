@@ -1,5 +1,5 @@
-  
 <header>
+
     <!-- Navbar Section Started -->
      <nav class="navbar navbar-expand-lg bg-dark ">
 
@@ -23,10 +23,11 @@
 {
 ?>              
                  <li class="nav-item">
-                   <a class="nav-link" data-toggle="modal" href="#loginform" data-dismiss="modal">Login</a>
+                   <a class="nav-link" data-toggle="modal" id="abc" href="#loginform"
+                    data-dismiss="modal">Login</a>
                 </li>
                  <li class="nav-item">
-                  <a class="nav-link" data-toggle="modal" href="#signupform" data-dismiss="modal">SignUp </a>
+                  <a class="nav-link" data-toggle="modal" id="xyz" href="#signupform" data-dismiss="modal">SignUp </a>
                 </li>
 <?php 
 }

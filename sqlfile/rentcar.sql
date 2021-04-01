@@ -74,22 +74,18 @@ INSERT INTO `tblbooking` (`id`, `userEmail`, `VehicleId`, `FromDate`, `ToDate`, 
 
 CREATE TABLE IF NOT EXISTS `tblbrands` (
   `id` int(11) NOT NULL,
-  `BrandName` varchar(120) NOT NULL,
-  `CreationDate` timestamp NULL DEFAULT CURRENT_TIMESTAMP,
-  `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
+  `BrandName` varchar(120) NOT NULL
 ) ENGINE=InnoDB AUTO_INCREMENT=8 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblbrands`
 --
 
-INSERT INTO `tblbrands` (`id`, `BrandName`, `CreationDate`, `UpdationDate`) VALUES
-(1, 'Maruti', '2017-06-18 16:24:34', '2017-06-19 06:42:23'),
-(2, 'BMW', '2017-06-18 16:24:50', NULL),
-(3, 'Audi', '2017-06-18 16:25:03', NULL),
-(4, 'Nissan', '2017-06-18 16:25:13', NULL),
-(5, 'Toyota', '2017-06-18 16:25:24', NULL),
-(7, 'Marutiu', '2017-06-19 06:22:13', NULL);
+INSERT INTO `tblbrands` (`id`, `BrandName`) VALUES
+(1, 'Maruti'),
+(2, 'Hyundai'),
+(3, 'Mahindra'),
+(4, 'Toyota');
 
 -- --------------------------------------------------------
 
@@ -228,7 +224,7 @@ INSERT INTO `tblusers` (`id`, `FullName`, `EmailId`, `Password`, `ContactNo`, `d
 (3, 'Mark K', 'webhostingamigo@gmail.com', 'f09df7868d52e12bba658982dbd79821', '09999857868', '03/02/1990', 'PKL', 'PKL', 'PKL', '2017-06-17 20:01:43', '2017-06-17 21:07:41'),
 (4, 'Tom K', 'test@gmail.com', '5c428d8875d2948607f3e3fe134d71b4', '9999857868', '', 'PKL', 'XYZ', 'XYZ', '2017-06-17 20:03:36', '2017-06-26 19:18:14');
 
--- --------------------------------------------------------
+-- 
 
 --
 -- Table structure for table `tblvehicles`
@@ -243,37 +239,22 @@ CREATE TABLE IF NOT EXISTS `tblvehicles` (
   `FuelType` varchar(100) DEFAULT NULL,
   `ModelYear` int(6) DEFAULT NULL,
   `SeatingCapacity` int(11) DEFAULT NULL,
-  `Vimage1` varchar(120) DEFAULT NULL,
-  `Vimage2` varchar(120) DEFAULT NULL,
-  `Vimage3` varchar(120) DEFAULT NULL,
-  `Vimage4` varchar(120) DEFAULT NULL,
-  `Vimage5` varchar(120) DEFAULT NULL,
-  `AirConditioner` int(11) DEFAULT NULL,
-  `PowerDoorLocks` int(11) DEFAULT NULL,
-  `AntiLockBrakingSystem` int(11) DEFAULT NULL,
-  `BrakeAssist` int(11) DEFAULT NULL,
-  `PowerSteering` int(11) DEFAULT NULL,
-  `DriverAirbag` int(11) DEFAULT NULL,
-  `PassengerAirbag` int(11) DEFAULT NULL,
-  `PowerWindows` int(11) DEFAULT NULL,
-  `CDPlayer` int(11) DEFAULT NULL,
-  `CentralLocking` int(11) DEFAULT NULL,
-  `CrashSensor` int(11) DEFAULT NULL,
-  `LeatherSeats` int(11) DEFAULT NULL,
-  `RegDate` timestamp NOT NULL DEFAULT CURRENT_TIMESTAMP,
-  `UpdationDate` timestamp NULL DEFAULT NULL ON UPDATE CURRENT_TIMESTAMP
-) ENGINE=InnoDB AUTO_INCREMENT=6 DEFAULT CHARSET=latin1;
+  `Vimage1` varchar(120) DEFAULT NULL
+) ENGINE=InnoDB AUTO_INCREMENT=9 DEFAULT CHARSET=latin1;
 
 --
 -- Dumping data for table `tblvehicles`
 --
 
-INSERT INTO `tblvehicles` (`id`, `VehiclesTitle`, `VehiclesBrand`, `VehiclesOverview`, `PricePerDay`, `FuelType`, `ModelYear`, `SeatingCapacity`, `Vimage1`, `Vimage2`, `Vimage3`, `Vimage4`, `Vimage5`, `AirConditioner`, `PowerDoorLocks`, `AntiLockBrakingSystem`, `BrakeAssist`, `PowerSteering`, `DriverAirbag`, `PassengerAirbag`, `PowerWindows`, `CDPlayer`, `CentralLocking`, `CrashSensor`, `LeatherSeats`, `RegDate`, `UpdationDate`) VALUES
-(1, 'ytb rvtr', 2, 'vtretrvet', 345345, 'Petrol', 3453, 7, 'knowledge_base_bg.jpg', '20170523_145633.jpg', 'phpgurukul-1.png', 'social-icons.png', '', 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, '2017-06-19 11:46:23', '2017-06-20 18:38:13'),
-(2, 'Test Demoy', 2, 'Lorem ipsum dolor sit amet, consectetuer adipiscing elit. Nam nibh. Nunc varius facilisis eros. Sed erat. In in velit quis arcu ornare laoreet. Curabitur adipiscing luctus massa. Integer ut purus ac augue commodo commodo. Nunc nec mi eu justo tempor consectetuer. Etiam vitae nisl. In dignissim lacus ut ante. Cras elit lectus, bibendum a, adipiscing vitae, commodo et, dui. Ut tincidunt tortor. Donec nonummy, enim in lacinia pulvinar, velit tellus scelerisque augue, ac posuere libero urna eget neque. Cras ipsum. Vestibulum pretium, lectus nec venenatis volutpat, purus lectus ultrices risus, a condimentum risus mi et quam. Pellentesque auctor fringilla neque. Duis eu massa ut lorem iaculis vestibulum. Maecenas facilisis elit sed justo. Quisque volutpat malesuada velit. ', 859, 'CNG', 2015, 4, 'car_755x430.png', 'looking-used-car.png', 'banner-image.jpg', 'about_services_faq_bg.jpg', '', 1, 1, 1, 1, 1, 1, 1, NULL, 1, 1, NULL, NULL, '2017-06-19 16:16:17', '2017-06-21 16:57:11'),
-(3, 'Lorem ipsum', 4, 'Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum', 563, 'CNG', 2012, 5, 'featured-img-3.jpg', 'dealer-logo.jpg', 'img_390x390.jpg', 'listing_img3.jpg', '', 1, 1, 1, 1, 1, 1, NULL, 1, 1, NULL, NULL, NULL, '2017-06-19 16:18:20', '2017-06-20 18:40:11'),
-(4, 'Lorem ipsum', 1, 'Lorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsumLorem ipsum', 5636, 'CNG', 2012, 5, 'featured-img-3.jpg', 'featured-img-1.jpg', 'featured-img-1.jpg', 'featured-img-1.jpg', '', 1, 1, 1, 1, 1, 1, 1, 1, 1, NULL, NULL, NULL, '2017-06-19 16:18:43', '2017-06-20 18:44:12'),
-(5, 'ytb rvtr', 5, 'vtretrvet', 345345, 'Petrol', 3453, 7, 'car_755x430.png', NULL, NULL, NULL, NULL, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, '2017-06-20 17:57:09', '2017-06-21 16:56:43');
+INSERT INTO `tblvehicles` (`id`, `VehiclesTitle`, `VehiclesBrand`, `VehiclesOverview`, `PricePerDay`, `FuelType`, `ModelYear`, `SeatingCapacity`, `Vimage1`) VALUES
+(1, 'Maruti Baleno(Diesel)', 1, 'Lorem ipsum dolor sit amet.', 800, 'Diesel', 2017, 5, 'maruti-baleno-diesel.png'),
+(2, 'Hyundai Grand i10', 2, 'Lorem ipsum dolor sit amet.', 1000, 'Petrol', 2015, 5, 'hyundai-hrand-i10.jpg'),
+(3, 'Maruti Swift', 1, 'Lorem ipsum dolor sit amet.', 1200, 'Petrol', 2017, 5, 'maruti-suzuki-swift.jpg'),
+(4, 'Mahindra Scorpio S10', 3, 'Lorem ipsum dolor sit amet.', 1800, 'Petrol', 2018, 7, 'mahindra-scorpio.jpg'),
+(5, 'Toyota Fortuner', 4, 'Lorem ipsum dolor sit amet.', 2000, 'Petrol', 2019, 7, 'toyota-fortuner.jpg'),
+(6, 'Bolero Sports', 3, 'Lorem ipsum dolor sit amet.', 1600, 'Petrol', 2020, 7, 'mahindra-bolero.jpeg'),
+(7, 'Marutic Brezza', 1, 'Lorem ipsum dolor sit amet.', 1200, 'Petrol', 2019, 7, 'maruti-brezza.jpg'),
+(8, 'Maruti Baleno(Petrol)', 1, 'Lorem ipsum dolor sit amet.', 1100, 'Petrol', 2018, 7, 'maruti-baleno-petrol.jpg');
 
 --
 -- Indexes for dumped tables
@@ -392,7 +373,7 @@ ALTER TABLE `tblusers`
 -- AUTO_INCREMENT for table `tblvehicles`
 --
 ALTER TABLE `tblvehicles`
-  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=6;
+  MODIFY `id` int(11) NOT NULL AUTO_INCREMENT,AUTO_INCREMENT=9;
 /*!40101 SET CHARACTER_SET_CLIENT=@OLD_CHARACTER_SET_CLIENT */;
 /*!40101 SET CHARACTER_SET_RESULTS=@OLD_CHARACTER_SET_RESULTS */;
 /*!40101 SET COLLATION_CONNECTION=@OLD_COLLATION_CONNECTION */;

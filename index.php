@@ -1,7 +1,6 @@
 <?php
 session_start();
 include('includes/config.php');
-//include('includes/config-gmail.php');
 error_reporting(0);
 ?>
 
@@ -39,6 +38,9 @@ error_reporting(0);
 <?php include('includes/header.php'); ?>
 <?php include('includes/header-pic.php'); ?>
 
+<!--------------Journey Information--------------->
+
+
 <!------------------Advantage Section------------->
 
 <?php include('advantage.php');?>
@@ -49,27 +51,27 @@ error_reporting(0);
 
 <!---------------RentCar Working Starts----------->
 
-<?php include('includes/working.php') ?>
+<?php include('includes/working.php');?>
 
 <!----------------Customers Choice---------------->
 
-<?php include('includes/customers.php') ?>
+<?php include('includes/customers.php'); ?>
 
 <!--------------Registration Form----------------->
 
-<?php include('includes/registration.php')?>
+<?php include('includes/registration.php');?>
 
 <!----------------Login Form---------------------->
 
-<?php include('includes/login.php')?>
+<?php include('includes/login.php');?>
 
 <!----------------Forgot Password---------------------->
 
-<?php include('includes/forgotpw.php')?>
+<?php include('includes/forgotpw.php');?>
 
 <!--------------Email Availability---------------->
 
-<?php include('check_availabilty.php')?>
+<?php include('check_availabilty.php');?>
 
 <!------------Developers Profile------------------>
 
@@ -118,6 +120,25 @@ error_reporting(0);
 	
 -->
 
+
+<?php
+/* this below statement is imp
+    if user go to the book_car.php page and coming to the another page without loging
+    then url_for_redirect (which is used for redirection of page after gmail login)
+    session is deleted 
+
+	this took me 4 days;
+*/
+if(strlen($_SESSION['login'])==0)
+{
+	if (isset($_SESSION['previous'])) {
+		if (basename($_SERVER['PHP_SELF']) != $_SESSION['previous']) {	
+			unset($_SESSION['url_for_redirect']);
+		}
+	}
+}
+?>
+
 <?php include('footer.php');?>
 
 
@@ -133,8 +154,5 @@ error_reporting(0);
 
 <!-- Latest compiled JavaScript -->
 <script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.5.2/js/bootstrap.min.js"></script>
-
-
 </body>
-
 </html>

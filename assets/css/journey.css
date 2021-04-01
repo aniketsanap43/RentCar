@@ -1,0 +1,26 @@
+.journey-info{
+  margin: 0;
+  position: absolute;
+  top: 30%;
+  left: 50%;
+  -ms-transform: translate(-50%, -50%);
+  transform: translate(-50%, -50%);
+  
+}
+
+.pickup-location h1{
+    padding:0px 0px 20px 36px;
+}
+.pickup-list li{
+    display: inline;
+    list-style-type:none;
+    padding-right: 10px;
+}
+.list-form-control{
+    padding:10px;
+}
+.next-btn{
+    color: chartreuse;
+    margin: 30px 0 0px 40px;
+}
+

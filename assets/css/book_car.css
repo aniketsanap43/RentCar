@@ -1,0 +1,127 @@
+
+/* Create two equal columns that floats next to each other */
+.book-car-col {
+  float: left;
+}
+.pre-journey-details{
+  background-color:rgb(240, 240, 240);
+  height:680px;
+  width:25%;
+  padding:30px;
+}
+
+/* Clear floats after the columns */
+.book-car-row:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+/* Creating Location Block on side corner*/
+.location-on-book-car{
+  border-style:groove;
+  border-width: 1px;
+  background-color: white;
+  margin:0px;
+}
+.location-on-book-car div{
+  padding: 10px;
+}
+.starting-point{
+  border-bottom: groove;
+  border-width: 1px;
+}
+.doorstep-delivery{
+  border-bottom: groove;
+  border-width: 1px;
+}
+
+/* Creating Date Block on side column*/
+.selected-dates{
+  margin-top: 30px;
+}
+.dates-on-book-car{
+  border-style: groove;
+  background-color: white;
+  border-width: 1px;
+  margin: 0px;
+}
+.date-of-journey{
+  float: left;
+  padding: 10px;
+}
+.pickup-time{
+  width:50%;
+  border-right: groove;
+  border-width: 1px;
+}
+.dropup-time{
+  width:50%;
+}
+.dates-on-book-car:after {
+  content: "";
+  display: table;
+  clear: both;
+}
+
+/*Creating Right column where we search the cars*/
+
+/*Slogo-1*/
+.car-select{
+    height:680px;
+    width:75%;
+}
+.slogo-1{
+  text-align: center;
+  background-color:hsl(229, 49%, 81%);
+  padding:12px;
+  font-size: 1.5rem;
+}
+
+/*  Car Listing*/
+
+.card{
+  margin:20px;
+}
+.card:hover {
+  box-shadow: 0 0 0px 0;
+  transform: translateY(0px);
+}
+.card img{
+    border: 1px solid #ddd;
+    border-radius: 4px;
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
+    padding: 5px;
+    width: 50%;
+}
+
+.product-listing-content{
+  text-align: center;
+}
+.product-listing-content ul{
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  overflow: hidden;
+}
+.product-listing-content ul li{
+  display:inline;
+  padding-right: 20px;
+}
+
+.product-listing-content li .fa{
+  font-size: 15px;
+  margin-right: 8px;
+}
+
+.product-listing-content a i{
+  margin-left: 8px;
+}
+.book-btn1{
+  text-align: center;
+  margin-top: 25px;
+}
+.product-listing-content p .btn{
+  padding:10px 30px 10px 30px;
+}

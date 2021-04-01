@@ -92,7 +92,7 @@
  	color: white;
 }
 
-.start-journey-btn button{
+.start-journey-btn a{
 	background-color: white;
 	color:black;
 	border-radius:8px;
@@ -101,7 +101,12 @@
 	font-size: 1.5rem;
 	padding: 15px 0px 15px 10px;
 }
-.start-journey-btn button span{
+.start-journey-btn a:hover{
+	text-decoration: none;
+	border:none;
+	color:rgb(90, 81, 81);
+}
+.start-journey-btn a span{
 	padding-left:100px;
 	padding-right: 20px;
 }

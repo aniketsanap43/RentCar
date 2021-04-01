@@ -151,7 +151,7 @@ foreach($results as $result)
 						            <?php }} ?>
 						           
 						            <div class="form-group">
-						              <button type="submit" name="updateprofile" class="save-changes-btn">Save Changes <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
+						              <button type="submit" name="updateprofile" class="save-changes-btn btn btn-success">Save Changes <span class="angle_arrow"><i class="fa fa-angle-right" aria-hidden="true"></i></span></button>
 						            </div>
 					         	 </form>
          					</div>

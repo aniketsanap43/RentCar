@@ -1,6 +1,5 @@
 <?php
-
-//index.php
+session_start();
 
 //Include Configuration File
 include('config-gmail.php');
@@ -8,6 +7,22 @@ include('config.php');
 
 $login_button = '';
 
+/* this below function statement took me 3 days to complete,its really annoying, 
+this statement redirects to the current page from where we logging and 
+registrating 
+eg. url_for_redirect from below is coming from book_car.php which is set to redirect_url variable 
+*/ 
+$redirect_url = '';
+$redirect_url1 = '';
+
+if(isset($_SESSION['url_for_redirect']))
+{
+  $redirect_url1 = $_SESSION['url_for_redirect'];
+  $redirect_url = $redirect_url1;
+}
+else{
+  $redirect_url = 'http://localhost/web1/index.php';
+}
 
 if(isset($_GET["code"]))
 {
@@ -55,9 +70,10 @@ if(isset($_GET["code"]))
     //if user is already registered then here it is automatically logged in.
     //set an user_email_adress value to login variable
     $_SESSION['login']=$_SESSION['user_email_address']; 
+
     echo "<script>";
     echo "setTimeout(function(){ ";
-    echo "   document.location='http://localhost/web1/';";
+    echo "   document.location='".$redirect_url."';"; //redirect to the current page where we are logging
     echo "});";  // redirect after 3 seconds
     echo "</script>";
 }else{
@@ -76,7 +92,7 @@ if(isset($_GET["code"]))
       $_SESSION['login']=$_SESSION['user_email_address'];
       echo "<script>";
       echo "setTimeout(function(){ ";
-      echo "   document.location='http://localhost/web1/';";
+      echo "   document.location='".$redirect_url."';";
       echo "});";  // redirect after 3 seconds
       echo "</script>"; 
     }else 
@@ -84,7 +100,7 @@ if(isset($_GET["code"]))
       echo "<script>alert('Something went wrong. Please try again');</script>";
       echo "<script>";
       echo "setTimeout(function(){ ";
-      echo "   document.location='http://localhost/web1/';";
+      echo "   document.location='".$redirect_url."';";
       echo "});";  // redirect after 3 seconds
       echo "</script>";
         //header("Location:index.php");

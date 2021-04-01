@@ -53,7 +53,7 @@ echo "<script type='text/javascript'> document.location = '$currentpage'; </scri
               <div class="g-btn">
                 <label class="using-social">Sign Up With:</label>
                 <?php
-                  echo '<div align="center">'.$login_button . '</div>';
+                  echo '<div align="center">'.$login_button.'</div>';
                 ?>
               </div>
             </div>
